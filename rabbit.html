@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>
+KAPEX
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Bangers', cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #56e603, #3cce8a, #0e94c9, #0026ff);
+      background-size: 600% 600%;
+      animation: gradientBG 6s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .buzzer {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ff3d3d, #b30000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 24px;
+      border: 5px solid white;
+      box-shadow: 0 0 500px rgb(255, 0, 0);
+      cursor: pointer;
+      animation: pulse 2s infinite;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @keyframes pulse {
+      50% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); }
+      50% { box-shadow: 0 0 40px rgba(255, 0, 0, 1); }
+      70% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); }
+    }
+
+    .hint {
+      font-size: 4em;
+      color: black;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: reveal 1s ease-out forwards;
+      text-align: center;
+    }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="buzzer" id="buzzer" onclick="showHint()">
+    PRESS<br>FOR<br>HINT!
+  </div>
+
+  <div class="hint" id="hint" style="display:none;">
+They have long Ears to help detect predators and regulate body heat. Strong hind legs allow them to make quick, zigzag escapes from predators.
+  </div>
+
+  <audio id="sound" src="rabbit.mp3"
+  preload="auto"></audio>
+
+  <script>
+    function showHint() {
+      document.getElementById('buzzer').style.display = 'none';
+      document.getElementById('hint').style.display = 'block';
+      document.getElementById('sound').play();
+    }
+  </script>
+</body>
+</html>
+
+
+  
+
